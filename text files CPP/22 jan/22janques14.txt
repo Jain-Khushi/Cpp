@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+double area(double r)
+{
+    double area=3.14*r*r;
+    return area;
+}
+    
+double circumference(double r)
+{
+    double circumference=2*3.14*r;
+    return circumference;
+}
+int main()
+{
+    double r;
+    cout<<"Enter radius of circle: "<<endl;
+    cin>>r;
+    
+    cout<<"Area="<<area(r)<<endl;
+    cout<<"Circumference="<<circumference(r)<<endl;
+    return 0;
+}

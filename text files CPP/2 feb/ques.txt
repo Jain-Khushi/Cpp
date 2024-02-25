@@ -1,0 +1,3 @@
+Ques 12, 13 from practical list
+
+Extra ques - Write a menu driven program that takes 3 numbers as input and returns the max or the min depending on user choice. Use pointers

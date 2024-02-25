@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+void series(int n)
+{
+    int A=0,B=1,count=2,next=0;
+    cout<<"Fibonacci series: "<<endl;
+    cout<<A<<" "<<B<<" ";
+    
+    while(count<n)
+    {
+        next=A+B;
+        cout<<next<<" ";
+        A=B;
+        B=next;
+        count=count+1;
+    }
+    return;
+}
+int main()
+{
+    int n;
+    cout<<"Enter the number of terms: "<<endl;
+    cin>>n;
+    series(n);
+    return 0;
+}

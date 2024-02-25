@@ -1,0 +1,16 @@
+1) Write a menu-driven program to perform the following operations on C++ strings:
+a) Compare 2 strings taken from the user
+b) Concatenate 2 strings
+c) Convert all lowercase characters to uppercase and uppercase characters to lowercase.
+d) Calculate the number of vowels
+e) Reverse the string
+
+
+2) Write a program that prompts the user to enter a duration of time in the form
+hours, minutes, and seconds. The program then calculates the duration in
+seconds. The program must throw three different exceptions objects: HExcept
+(if hours is negative), MExcept (if minutes are not between 0 and 59), and
+SExcept (if seconds are not between 0 and 59). Create three exceptional classes
+that inherit from the OutOfRange parent exception class. Use polymorphism
+(catch-by-reference) and one catch clause to handle all cases.
+Class comments

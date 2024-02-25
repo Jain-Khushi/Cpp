@@ -1,0 +1,37 @@
+#include<iostream>
+
+using namespace std;
+
+int is_prime (int n)
+{
+	int flag=0;
+	for(int i=2 ; i<=n/2 ; i++)
+		if(n%i==0)
+		{
+			flag=1;
+			break;
+		}
+	return flag;
+}
+
+void prime ()
+{
+	int n;
+	cout<<"Enter a number : ";
+	cin>>n;
+	if(is_prime(n)==1)
+		cout<<"Given number is a composite number !!";
+	if(is_prime(n)==0)
+		cout<<"Given number is a prime number !!";
+	cout<<endl;
+	cout<<"All prime numbers less than 100 are as follows :-"<<endl;
+	for(n=2 ; n<=100 ; n++)
+		if(is_prime(n)==0)
+			cout<<n<<" ";
+}
+
+int main ()
+{
+	prime ();
+	return 0;
+}

@@ -1,0 +1,53 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+class Triangle
+{
+    private:
+    float firstSide,secondSide,thirdSide,perimeter;
+    
+    public:
+    Triangle()
+    {
+        do
+        {
+            cout<<"Enter first side of triangle: ";
+            cin>>firstSide;
+            cout<<"Enter second side of triangle: ";
+            cin>>secondSide;
+            cout<<"Enter third side of triangle: ";
+            cin>>thirdSide;
+        }while((firstSide+secondSide)<thirdSide);
+    }
+    
+    void getSides()
+    {
+        cout<<"First side: "<<firstSide<<endl<<"Second side: "<<secondSide<<endl<<"Third side: "<<thirdSide<<endl;
+    }
+    
+    void getPerimeter()
+    {
+        perimeter=firstSide+secondSide+thirdSide;
+        cout<<"Perimeter of triangle is: "<<perimeter<<endl;
+    }
+    
+    void getArea()
+    {
+        float area,p;
+        p=perimeter/2;
+        area=sqrt((p)*(p-firstSide)*(p-secondSide)*(p-thirdSide));
+        cout<<"Area of triangle is: "<<area<<endl;
+        
+    }
+            
+};
+int main()
+{
+    Triangle T;
+    T.getSides();
+    T.getPerimeter();
+    T.getArea();
+    
+    return 0;
+}

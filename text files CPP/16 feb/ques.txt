@@ -1,0 +1,2 @@
+Do the following questions from guidelines and submit .txt file for each question separately. No need to send the output files.
+Q.21 (without using templates), Q.23, Q.24 (remaining parts)

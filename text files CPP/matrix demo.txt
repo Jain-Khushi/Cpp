@@ -1,0 +1,132 @@
+#include <iostream>
+using namespace std;
+class Matrix
+{
+    private:
+       int dimension;
+       int mat[20][20];
+    public:
+       //comstructor
+       Matrix(int size);
+       //For input
+       void getInputData();
+       //For addition
+       Matrix sum(const Matrix& m);
+       //For subtraction
+       Matrix sub(const Matrix& m);
+       //For multiplication
+       //Matrix product(const Matrix& m);
+       //For transpose
+       Matrix transpose();
+       //For display
+       void displayMatrix();
+};
+
+Matrix :: Matrix(int size)
+{
+    dimension=size;
+}
+void Matrix :: getInputData()
+{
+    cout<<"\nEnter the values of matrix: "<<endl;
+    for(int i=0;i<dimension;i++)
+    {
+        for(int j=0;j<dimension;j++)
+        {
+            cin>>mat[i][j];
+        }
+    }
+}
+Matrix Matrix :: sum(const Matrix& m)
+{
+    Matrix resultMatrix(dimension);
+    for(int i=0;i<dimension;i++)
+    {
+        for(int j=0;j<dimension;j++)
+        {
+            resultMatrix.mat[i][j]=mat[i][j]+m.mat[i][j];
+        }
+    }
+    return resultMatrix;
+}
+Matrix Matrix :: sub(const Matrix& m)
+{
+    Matrix resultMatrix(dimension);
+    for(int i=0;i<dimension;i++)
+    {
+        for(int j=0;j<dimension;j++)
+        {
+            resultMatrix.mat[i][j]=mat[i][j]-m.mat[i][j];
+        }
+    }
+    return resultMatrix;
+}
+/*Matrix Matrix :: multiply(const Matrix& m)
+{
+    Matrix resultMatrix(dimension);
+    for(int i=0;i<dimension;i++)
+    {
+        for(int j=0;j<dimension;j++)
+        {
+            resultMatrix.mat[i][j]=mat[i][j]*m.mat[i][j];
+        }
+    }
+    return resultMatrix;
+}*/
+Matrix Matrix :: transpose()
+{
+     Matrix resultMatrix(dimension);
+    for(int i=0;i<dimension;i++)
+    {
+        for(int j=0;j<dimension;j++)
+        {
+            resultMatrix.mat[j][i]=mat[i][j];
+        }
+    }
+    return resultMatrix;
+}
+void Matrix :: displayMatrix()
+{
+    cout<<"\nYour matrix is: "<<endl;
+    for(int i=0;i<dimension;i++)
+    {
+        for(int j=0;j<dimension;j++)
+        {
+            cout<<mat[i][j]<<"\t";
+        }
+        cout<<endl;
+    }
+}
+int main()
+{
+    int size;
+    cout<<"\nEnter the matrix dimension: ";
+    cin>>size;
+    
+    Matrix m1(size);
+    m1.getInputData();
+    m1.displayMatrix();
+    
+    Matrix m2(size);
+    m2.getInputData();
+    m2.displayMatrix();
+    
+    cout<<"\nSum: "<<endl;
+    Matrix m3(size);
+    m3=m1.sum(m2);
+    m3.displayMatrix();
+    
+    cout<<"\nDifference: "<<endl;
+    m3=m1.sub(m2);
+    m3.displayMatrix();
+    
+    /*cout<<"\nMultiplication: "<<endl;
+    m3=m1.multiply(m2);
+    m3.displayMatrix();*/
+    
+     cout<<"\ntranspose: "<<endl;
+    m3=m1.transpose();
+    m3.displayMatrix();
+    
+    return 0;
+}

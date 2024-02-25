@@ -1,0 +1,46 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+void enter(float &a,float &b,float &c)
+{
+    cout<<"Enter values of a:"<<endl;
+    cin>>a;
+    cout<<"Enter values of b:"<<endl;
+    cin>>b;
+    cout<<"Enter values of c:"<<endl;
+    cin>>c;
+    return;
+}
+void compute(float &a,float &b,float &c)
+{
+	float d,D,x,y;
+    D=((b*b)-(4*a*c));
+    d=sqrt(D);
+    
+    if(a==0 && b==0)
+      cout<<"There is no solution."<<endl;
+    else if(a==0)
+           {
+              cout<<"There is only one root."<<endl;
+              cout<<(-c/b);
+           }
+    else if(D<0)
+           cout<<"There are no real roots\n";
+    else
+        {
+            cout<<"There are 2 roots\n";
+            x=(-b+d)/(2*a);
+            y=(-b-d)/(2*a);
+            cout<<"x="<<x<<endl<<"y="<<y;
+        }
+    return;
+}
+int main()
+{
+    float a,b,c;
+    enter(a,b,c);
+    compute(a,b,c);
+    return 0;
+}
+        

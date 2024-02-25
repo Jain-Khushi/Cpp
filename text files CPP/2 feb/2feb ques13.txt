@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+
+void alter(int*x,int*y)
+{
+    *x=*x+1;
+    *y=*y+1;
+    
+    cout<<"Altered values are :\n"
+        <<"x= "<<*x<<" and y= "<<*y;
+        
+    return;
+    
+}
+int main()
+{
+    int x,y;
+    cout<<"Enter value of first number: ";
+    cin>>x;
+    cout<<"Enter value of second number: ";
+    cin>>y;
+    
+    alter(&x,&y);
+    
+    return 0;
+}

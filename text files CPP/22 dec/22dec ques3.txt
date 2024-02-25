@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	double cost,total_cost,tax=9.5,service_tax=20.0,x;
+	int adults=6,children=4;
+	
+	cout<<"Enter the total charge"<<endl;
+	cin>>cost;
+	
+	total_cost=cost+cost/100*(tax+service_tax);
+	x=total_cost/(adults+children*3/4);
+	
+	cout<<"Share of family 1:"<<(2*x)+(2*3/4*x)<<endl;
+	cout<<"Share of family 2:"<<(2*x)+(3/4*x)<<endl;
+	cout<<"Share of family 3:"<<(2*x)+(3/4*x)<<endl;
+	
+	return 0;
+	
+}

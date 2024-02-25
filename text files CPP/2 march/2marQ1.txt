@@ -1,0 +1,95 @@
+#include<iostream>
+#include<cmath>
+#include<string>
+#include <bits/stdc++.h>
+
+using namespace std;
+void menu();
+
+int main()
+{
+ menu();
+ return 0;
+}
+void menu()
+{
+ char ans;
+ string s1;
+ string s2;
+ int choice,vowels;
+ cout<<"\t\t MENU"<<endl;
+ cout<<"1...COMPARE TWO STRINGS  "<<endl;
+ cout<<"2...CONCATENATE TWO STRINGS"<<endl;
+ cout<<"3...CONVERT ALL LOWER CASE TO UPPER CASE AND VICE VERSA"<<endl;
+ cout<<"4...VOWELS IN THE STRINGS"<<endl;
+ cout<<"5...REVERSE THE STRING"<<endl<<endl;
+do
+{
+ cout<<"GIVE YOUR CHOICE: ";
+ cin>>choice;
+ switch(choice)
+ {
+   case 1:cout<<"GIVE THE FIRST STRING:";
+          cin>>s1;
+          cout<<"GIVE THE SECOND STRING:";
+          cin>>s2;
+          if(s1==s2)
+          {
+           cout<<"BOTH THE STRINGS ARE EQUAL\n";
+          }
+          else if(s1>s2)
+          {
+           cout<<"THE STRINGS ARE NOT EQUAL FIRST STRING IS GREATER THAN SECOND\n";
+          }
+          else
+          {
+           cout<<"THE STRINGS ARE NOT EQUAL SECOND STRING IS GREATER THAN FIRST\n";
+          } 
+          break;
+ 
+   case 2:cout<<"GIVE THE FIRST STRING:";
+          cin>>s1;
+          cout<<"GIVE THE SECOND STRING:";
+          cin>>s2;
+          s1.append(s2);
+          cout<<"THE STRING AFTER CONCATINATION IS:: ";
+          cout<<s1<<endl;
+          break; 
+   case 3:cout<<"GIVE THE STRING:";
+          cin>>s1;
+          for(int i=0;i<s1.length();i++) 
+         {
+            int c = s1[i]; 
+            if (islower(c))  
+              s1[i] = toupper(c); 
+            else if (isupper(c))  
+              s1[i] = tolower(c);         
+          } 
+          cout<<s1<<endl;
+          break; 
+   case 4:cout<<"GIVE THE STRING:";
+          cin>>s1;
+          for (int i=0; i<s1.length(); i++) 
+          {
+            if (s1[i]=='a'||s1[i]=='e' ||s1[i]=='i' || s1[i]=='o' ||s1[i]=='u'||s1[i]=='A'||s1[i]=='E' ||s1[i]=='I' || s1[i]=='O' ||s1[i]=='U') 
+            {
+              ++vowels;
+            } 
+          }
+          cout<<"NO OF VOWELS ARE:"<<vowels<<endl;
+          break; 
+   case 5:cout<<"GIVE THE STRING:";
+          cin>>s1; 
+          reverse(s1.begin(), s1.end()); 
+          cout << s1<<endl;
+          break; 
+ default :cout<<"INVALID OPTION";
+          break; 
+ }
+ cout<<endl;
+ cout<<"DO YOU WANT TO CONTINUE AGAIN??(Y/N): ";
+ cin>>ans;
+}while(ans=='y'||ans=='Y');
+ return;
+}
+

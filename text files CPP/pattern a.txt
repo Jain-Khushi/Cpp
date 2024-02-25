@@ -1,0 +1,25 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+int main()
+{
+	int no,i,j,k;
+	cout<<"enter the no of rows: ";
+	cin>>no;
+	
+	for(i=1;i<=no;i++)
+	{
+		for(j=no;j>=i;j--)
+		cout<<" ";
+		
+		for(k=1;k<=2*i-1;k++)
+		cout<<"*";
+	    
+	    
+	    cout<<"\n";
+	}
+	
+	getch();
+	return 0;
+}

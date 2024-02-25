@@ -1,0 +1,103 @@
+Ques 22 from the guidelines
+
+#include <iostream>
+using namespace std;
+
+class Person
+{
+    private:
+        string name;
+        int age;
+
+    public:
+        virtual void get_data()
+        {
+            cout << "Enter Name: ";
+            while(name.length() == 0)
+                getline(cin, name);
+            cout << "Enter Age: ";
+            cin >> age;
+        }
+
+        virtual void put_data()
+        {
+            cout << "\nName: " << name << endl
+                 << "Age: " << age << endl;
+        }
+};
+
+class Teacher : public Person
+{
+    private:
+        int tid;
+        string subject;
+    public:
+        void get_data()
+        {
+            Person :: get_data();
+            cout << "Teachers Id: ";
+            cin >> tid;
+            cout << "Subject: ";
+            cin.ignore(100, '\n');
+            getline(cin, subject);
+        }
+
+        void put_data()
+        {
+            Person :: put_data();
+            cout << "Teacher's Id: " << tid << endl
+                 << "Subject: " << subject << endl;
+        }
+};
+
+class Student : public Person
+{
+    private:
+        int roll;
+        int clss;
+    public:
+        void get_data()
+        {
+            Person :: get_data();
+            cout << "Roll Number: ";
+            cin >> roll;
+            cout << "Class: ";
+            cin >> clss;
+        }
+        void put_data()
+        {
+            Person :: put_data();
+            cout << "Roll Number: " << roll << endl
+                 << "Class: " << clss << endl;
+        }
+};
+
+int main()
+{
+    cout << "Person class object demonstration Begin:\n";
+    Person p;
+    p.get_data();
+    p.put_data();
+    cout << "Person class object demonstration End:\n";
+
+
+    cout << "\nTeachers Class\n";
+    Person *personPtr = new Teacher;
+    personPtr -> get_data();
+    personPtr -> put_data();
+    delete personPtr;
+
+    cout << "Teacher obj deleted\n";
+
+    cout << "\nStudent Class\n";
+    personPtr = new Student;
+    personPtr -> get_data();
+    personPtr -> put_data();
+    delete personPtr;
+
+    cout << "Student obj deleted\n";
+
+    cout << "\nEND\n";
+
+    return 0;
+}

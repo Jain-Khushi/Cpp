@@ -1,0 +1,147 @@
+#include <iostream>
+#include<cstdlib>
+using namespace std;
+
+class Box
+{
+    private:
+    float length,breadth,height,surface_area,volume;
+    int value;
+    
+    public:
+    void enter()
+    {
+        cout<<"Enter length of the box: ";
+        cin>>length;
+        cout<<"Enter breadth of the box: ";
+        cin>>breadth;
+        cout<<"Enter height of the box: ";
+        cin>>height;
+    }
+    void check()
+    {
+        if(length==breadth && breadth==height)
+          cout<<"\nBox is a cube.\n";
+        else
+          cout<<"Box is a cuboid.\n";
+          
+    }
+    void area()
+    {
+        if(length==breadth && breadth==height)
+        {
+            surface_area=6*length*length;
+             cout<<"Surface area of cube is: "<<surface_area<<endl;
+        }
+        else
+        {
+            surface_area=2*(length*breadth+breadth*height+height*length);
+            cout<<"Surface area of cuboid is: "<<surface_area<<endl;
+        }
+     
+    }
+    void Volume()
+    {
+         volume=length*breadth*height;
+         cout<<"Volume is: "<<volume<<endl;
+    }
+    Box& operator++()
+    {
+    	cout<<length++;
+    	cout<<breadth++;
+    	cout<<height++;
+    	return (*this);
+	}
+	const Box operator++(int)
+	{
+		const Box temp= *this;
+		cout<<length++;
+		cout<<breadth++;
+		cout<<height++;
+		return temp;
+	}
+	Box& operator--()
+	{
+		cout<<length--;
+		cout<<breadth--;
+		cout<<height--;
+		return (*this);
+	}
+	const Box operator++(int)
+	{
+		const Box temp= *this;
+		cout<<length--;
+		cout<<breadth--;
+		cout<<height--;
+		return temp;
+	}
+	Box operator=(Box b1)
+	{
+		cout<<lenght=B1.length;
+		cout<<breadth=B1.breadth;
+	    cout<<height=B1.height;
+	    cout<<volume=B1.volume;
+	    cout<<surface_area=B1.surface_area;
+		
+	}
+	bool operator==(Box b1)
+	{
+		if(lenght=B1.length && breadth=B1.breadth && height=B1.height)
+		  return true;
+		else
+		  return false;
+	}
+};
+int main()
+{
+    Box B1,B2;
+    char choice;
+    B1.enter();
+    
+    cout<<"\n\t\t\t\t\t MENU";
+	cout<<"\n\t\t\t\tPress 1 : to find surface area";
+	cout<<"\n\t\t\t\tPress 2 : to find volume";
+	cout<<"\n\t\t\t\tPress 3 : to check whether cuboid is cube or not";
+	cout<<"\n\t\t\t\tPress 4 : to increase dimensions by '1' and print";
+	cout<<"\n\t\t\t\tPress 5 : to print and then increase dimensions by '1'";
+	cout<<"\n\t\t\t\tPress 6 : to decrease dimensions by '1' and print";
+	cout<<"\n\t\t\t\tPress 7 : to print and then decrease dimensions by '1'";
+	cout<<"\n\t\t\t\tPress 8 : to create a box of same dimensions and print";
+	cout<<"\n\t\t\t\tPress 9 : to check the equality of two boxes";
+	cout<<"\n\t\t\t\tPress 0 : to exit";
+	cout<<"\n\t\t\t\tEnter your choice : ";
+	cin>>choice;
+	
+	switch(choice)
+	{
+		case 1: B1.area();
+		        break;
+		case 2: B1.volume();
+		        break;
+		case 3: B1.check();
+		        break;
+		case 4: ++B1;
+		        break;
+		case 5: B2=B1++;
+		        break;
+		case 6: --B1;
+		        break;
+		case 7: B2=B1--;
+		        break;
+		case 8: B2=B1;
+		        break;
+		case 9: cout<<"For first box :-"<<endl;
+				B1.enter();
+				cout<<"For second box :-"<<endl;
+				b2.enter();
+				if(B1==B2)
+				  cout<<"Both boxes are equal ";
+				else
+					cout<<"Both boxes are unequal";
+				break;
+		case 0: exit(0);
+		default: cout<<"Wrong choice!! Enter again!!"
+	}
+		
+	 return 0;
+}

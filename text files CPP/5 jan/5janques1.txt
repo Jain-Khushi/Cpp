@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+
+int firstdigit(int num)
+{
+	int a=num%10;
+	return a;
+}
+int seconddigit(int num)
+{
+	num=num/10;
+	int b=num%10;
+	return b;
+}
+int thirddigit(int num)
+{
+	num=num/100;
+	int c=num%10;
+	return c;
+}
+int add(int num)
+{
+	int sum=firstdigit(num)+seconddigit(num)+thirddigit(num);
+	cout<<"Sum of 3 least significant digits:"<<sum;
+	return 0;
+}
+
+int main()
+{
+	int num;
+	cout<<"Enter the number:"<<endl;
+	cin>>num;
+	add(num);
+	return 0;
+}

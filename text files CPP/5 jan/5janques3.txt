@@ -1,0 +1,53 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+void compound(float principal,float rate,int time,int number)
+{
+	float compound=principal*pow(1+rate/number,number*time);
+	cout<<"Amount by using formula of compound interest:"<<compound<<endl;
+	
+	return;
+}
+void tabular(float principal,float rate,int number)
+{
+	float interest1=((rate/number)*principal);
+	float amount1=principal+interest1;
+
+	float interest2=((rate/number)*amount1);
+	float amount2=amount1+interest2;
+
+	float interest3=((rate/number)*amount2);
+	float amount3=amount2+interest3;
+
+	float interest4=((rate/number)*amount3);
+	float amount4=amount3+interest4;
+
+	cout<<"Quarter"<<"             "<<"Interest"<<"              "<<"Balance"<<endl;
+	cout<<"First quarter"<<"        "<<interest1<<"                "<<amount1<<endl;
+	cout<<"Second quarter"<<"       "<<interest2<<"                "<<amount2<<endl;
+	cout<<"Third quarter"<<"        "<<interest3<<"                "<<amount3<<endl;
+	cout<<"Fourth quarter"<<"       "<<interest4<<"                "<<amount4<<endl;
+	return ;
+}
+int main()
+{
+	float principal,rate;
+	int time,number;
+
+	cout<<"Enter principal value:";
+	cin>>principal;
+
+	cout<<"Enter rate:";
+	cin>>rate;
+
+	cout<<"Enter time:";
+	cin>>time;
+
+	cout<<"Enter number:";
+	cin>>number;
+
+	compound(principal,rate,time,number);
+	tabular(principal,rate,number);
+
+	return 0;
+}    

@@ -1,0 +1,52 @@
+#include <iostream>
+#include<cmath>
+
+using namespace std;
+
+int menu()
+{
+    int choice;
+    do
+    {   
+        float a,b,sum,sub,division,multiply;
+        
+        cout<<"Basic Mathematical Operations :\n"
+            <<"1.ADDITION(+)\n"
+            <<"2.SUBTRACTION(-)\n"
+            <<"3.MULTIPLICATION(*)\n"
+            <<"4.DIVISION(/)\n";
+        cout<<"Enter your choice(1,2,3,4)\n";
+        cin>>choice;
+        
+        cout<<"Enter first operand:\n";
+        cin>>a;
+        cout<<"Enter second operand:\n";
+        cin>>b;
+        
+        switch(choice)
+        {
+            case 1:   sum=a+b;
+                      cout<<"ADDITION is:"<<sum<<endl;
+                      break;
+            case 2:   sub=fabs(a-b);
+                      cout<<"SUBTRACTION is:"<<sub<<endl;
+                      break;
+            case 3:   multiply=a*b;
+                      cout<<"MULTIPLICATION is:"<<multiply<<endl;
+                      break;
+            case 4:   division=a/b;
+                      cout<<"DIVISION is:"<<division<<endl;
+                      break;
+            default:  cout<<"WRONG CHOICE.ENTER AGAIN!"<<endl;
+                      break;
+        }
+    } 
+    while(choice>=1 && choice<=4);
+    return 0;
+}
+
+int main()
+{
+    menu();
+    return 0;
+}

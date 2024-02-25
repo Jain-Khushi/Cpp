@@ -1,0 +1,80 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+class triangle
+{
+	private:
+		double firstSide,secondSide,thirdSide;
+    public:
+    	void input();
+    	void output();
+    	double calc_area(double a,double b  )
+    	{
+    		double area;
+    		firstSide=a;
+    		secondSide=b;
+			thirdSide=sqrt(a*a+b*b);
+    		area=0.5*firstSide*secondSide;
+    		return area;
+	}
+	double calc_area(double a,double b,double c )
+    	{
+    		double area,s;
+            firstSide=a;
+    		secondSide=b;
+    		thirdSide=c;
+    		s=(a+b+c)/2;
+    		area=sqrt(s*(s-firstSide)*(s-secondSide)*(s-thirdSide));
+    		return area;
+	}
+    	triangle operator=(const triangle& tri)
+    	{
+       		firstSide=tri.firstSide;
+    		secondSide=tri.firstSide;
+    		thirdSide=tri.thirdSide;
+    		return *this;
+	}
+	bool operator==(const triangle& tri)
+    	{
+    		if(firstSide==tri.firstSide&&secondSide==tri.secondSide&&thirdSide==tri.thirdSide)
+    		{
+    			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+};
+
+int main()
+{
+	triangle T1;
+	double firstSide,secondSide,thirdSide,area;
+	bool answer;
+	cout<<"Is it a right triangle?(Yes=1 or No=0): ";
+	cin>>answer;
+	if(answer==true)
+	{
+		cout<<"Enter the base and height: ";
+		cin>>firstSide;
+		cin>>secondSide;
+		area=T1.calc_area(firstSide,secondSide);
+	}
+	else
+	{
+		do
+        {
+            cout<<"Enter first side of triangle: ";
+            cin>>firstSide;
+            cout<<"Enter second side of triangle: ";
+            cin>>secondSide;
+            cout<<"Enter third side of triangle: ";
+            cin>>thirdSide;
+        }while((firstSide+secondSide)<thirdSide);
+			
+		area=T1.calc_area(firstSide,secondSide,thirdSide);
+	}
+	cout<<"Area of triangle is: "<<area;
+	return 0;
+}

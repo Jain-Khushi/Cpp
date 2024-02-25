@@ -1,0 +1,96 @@
+#include <iostream>
+#include<cstring>
+#include<cstdlib>
+using namespace std;
+
+void compare(char A[],char B[])
+{
+    cout<<"Enter string B: ";
+    cin.getline(B,50);
+    if(strlen(A)==strlen(B))
+       cout<<"\nBoth strings contain equal number of characters.\n";
+    else
+       cout<<"\nBoth strings contains different number of characters.\n";
+       
+    return;
+}
+void concatenate(char B[],char A[],int i)
+{
+    char C[50];
+    cout<<"Enter string B: ";
+    cin.getline(B,50);
+    C[i]=A[i]+B[i];
+    cout<<"Concatenated string is: "<<C[i]<<endl;
+    return ;
+}
+void cases(char A[50],int i)
+{
+    for(i=0;A[i]!='\0';i++)
+    {
+        if(islower(A[i]))
+           A[i]=toupper(A[i]);
+        else if(isupper(A[i]))
+           A[i]=tolower(A[i]); 
+    }
+    cout<<"The changed string is: "<<A[i];
+    return;
+}
+void vowels(char A[50],int i)
+{
+    int vowels;
+    for(i=0;A[i]!='\0';i++)
+    {
+        if(A[i]=='A'||A[i]=='a'||A[i]=='E'||A[i]=='e'||A[i]=='I'||A[i]=='i'||A[i]=='O'||A[i]=='o'||A[i]=='U'||A[i]=='u')
+           ++vowels;
+    }
+    cout<<"Number of vowels in the string: "<<vowels<<endl;
+    return;
+}
+void reverse(char A[50],int i)
+{
+    char ch;
+    for(i=0;A[i]!='\0';i++)
+    {
+        ch=A[i];
+        A[i]=A[i+1];
+        A[i+1]=ch;
+    }
+    cout<<"The reversed string is: "<<A[i]<<endl;
+    return;
+}
+int main()
+{
+    char A[50],B[50];
+    int choice,i;
+    cout<<"Enter string A: "<<endl;
+    cin.getline(A,50);
+    do
+    {
+        cout<<"...MENU...\n"
+            <<"1.Compare 2 strings\n"
+            <<"2.Concatenate 2 strings\n"
+            <<"3.Convert all lowercase characters to upperase and vice versa\n"
+            <<"4.Calculate the number of vowels\n"
+            <<"5.Reverse the string\n"
+            <<"6.Exit from the menu\n";
+        cout<<"Enter your choice: ";
+        cin>>choice;
+        switch(choice)
+        {
+            case 1: compare(A,B);
+                    break;
+            case 2: concatenate(A,B,i);
+                    break;
+            case 3: cases(A,i);
+                    break;
+            case 4: vowels(A,i);
+                    break;
+            case 5: reverse(A,i);
+                    break;
+            case 6: exit(0);
+            default: cout<<"Wrong choice! Enter again!";
+                     break;
+        }
+    }while(choice>=1 && choice<=6);
+    return 0;
+}

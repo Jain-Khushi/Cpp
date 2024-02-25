@@ -1,0 +1,2 @@
+Practical Guidelines -
+1, 2, 3, 4, 6, 7, 9, 10, 14, 17, 18, 19, 20 (Leave recursion part)

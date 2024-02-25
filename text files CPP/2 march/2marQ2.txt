@@ -1,0 +1,72 @@
+#include <iostream>
+
+using namespace std;
+
+class OutOfRange
+{
+    public:
+    virtual void printmesage()
+    { cout<<"Error: Out of Range\n"; }
+};
+class HExcept: public OutOfRange
+{
+    public:
+    virtual void printmesage()
+    { cout<<"Error: Hours cannot be Negative\n"; }
+};
+class SExcept: public OutOfRange
+{
+    public:
+    virtual void printmesage()
+    { cout<<"Error: Seconds are not between 0 and 59\n"; }
+};
+class MExcept: public OutOfRange
+{
+    public:
+    virtual void printmesage()
+    { cout<<"Error: Minutes are not between 0 and 59\n"; }
+};
+
+int calculate(int hour, int min, int sec)
+{
+    int answer= (hour*3600) + (min*60) + sec;
+
+    if(hour < 0)
+    {
+        throw HExcept ();
+    }
+    if(min < 0 || min > 59)
+    {
+        throw MExcept ();
+    }
+    if(sec < 0 || sec > 59)
+    {
+        throw SExcept ();
+    }
+    return answer;
+}
+
+int main()
+{
+    int hour,min,sec;
+    cout<<"Enter number of hours: ";
+    cin>>hour;
+    cout<<"Enter number of minutes: ";
+    cin>>min;
+    cout<<"Enter number of seconds: ";
+    cin>>sec;
+
+    try
+    {
+        int final=calculate(hour,min,sec);
+        cout<<"Time in seconds is: "<<final;
+
+    }
+    catch(OutOfRange& error)
+    {
+        error.printmesage();
+	exit (10);
+    }
+
+    return 0;
+}

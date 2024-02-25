@@ -1,0 +1,172 @@
+#include<iostream>
+using namespace std;
+class Box
+{
+	private:
+	
+	    int length;
+	    int breadth;
+	    int height;
+	public:
+		Box();
+		void surface_area();
+		void volume();
+		void check();
+		void operator++();
+		void operator++(int);
+		void operator--();
+		void operator--(int);
+		bool operator==(const Box&b2);
+		Box operator=(const Box&b2);
+		
+		void show();		
+};
+
+void Box::show()
+{
+	cout<<endl<<length<<" ";
+	cout<<breadth<<" ";
+	cout<<height<<endl;
+}
+
+
+void Box::surface_area()
+{
+	int area;
+	area=2*(length*breadth+breadth*height+height*length);
+	cout<<"\nThe surface area of the given box is : "<<area;
+}
+
+
+void Box::volume()
+{
+	int vol;
+	vol=length*breadth*height;
+	cout<<"\nThe volume of the given box is : "<<vol;
+}
+
+
+void Box::check()
+{
+	if((length==breadth)&&(breadth==height))
+	{
+		cout<<"\nThis is a cube!!!";
+	}
+	else
+	{
+	cout<<"\nThis is cuboid!!!";
+    }
+}
+
+Box::Box()
+{
+	cout<<"\nEnter length of the box : ";
+	cin>>length;
+	
+	cout<<"\nEnter breadth of the box : ";
+	cin>>breadth;
+	
+	cout<<"\nEnter height of the box : ";
+	cin>>height;
+}
+
+void Box::operator++()
+{
+    length=length+1;
+	breadth=breadth+1;
+	height=height+1;
+}
+
+void Box::operator++(int)
+{
+	length=length+1;
+	breadth=breadth+1;
+	height=height+1;
+}
+
+void Box::operator--()
+{
+	length=length-1;
+	breadth=breadth-1;
+	height=height-1;
+}
+
+void Box::operator--(int)
+{
+	length=length-1;
+	breadth=breadth-1;
+	height=height-1;
+}
+
+Box Box::operator=(const Box&b)
+{
+	length=b.length;
+	breadth=b.breadth;
+	height=b.height;
+	return(*this);
+}
+
+bool Box::operator==(const Box&b)
+{
+	if(length==b.length&&breadth==b.breadth&&height==b.height)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+
+int main()
+{
+	int choice;
+	Box b,b1;
+	++b;
+	cout<<"\nAfter prefix increment :";
+	b.show();
+	b++;
+	cout<<"\nAfter postfix increment :";
+	b.show();
+	--b;
+	cout<<"\nAfter prefix decrement :";
+	b.show();
+	b--;
+	cout<<"\nAfter postfix decrement :";
+	b.show();
+	b1==b;
+	cout<<"\nobject 2 before assignment overloading : ";
+	b1.show();
+    b1=b;
+    cout<<"\nobject 2 after assignment overloading : ";
+    b1.show();
+	do
+	{
+	cout<<"\n ------MENU------";
+	cout<<"\n1) Surface area :";
+	cout<<"\n2) Volume :";
+	cout<<"\n3) Checking for cube or cuboid:";
+	cout<<"\n4)Exit\n";
+	cin>>choice;
+	
+	
+	switch(choice)
+	{
+		case 1: b.surface_area();
+		        break;
+		
+		case 2: b.volume();
+		        break;
+		        
+		case 3: b.check();
+		        break;
+		
+		case 4:exit(0);
+		default:cout<<"\nYou entered the wrong number !!!";
+		        break;
+	}
+	
+   }while(choice!=4);
+   
+}

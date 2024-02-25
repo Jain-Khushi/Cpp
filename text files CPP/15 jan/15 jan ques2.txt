@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+void read(float&first,float&second,float&third)
+{
+    
+    cout<<"Enter the scores in first test:";
+    cin>>first;
+    
+    cout<<"Enter the scores in second test:";
+    cin>>second;
+    
+    cout<<"Enter the scores in third test:";
+    cin>>third;
+    
+    return ;
+}
+
+void calgrade(float first,float second,float third,float &avg,char &grade)
+{
+    
+    avg=(first+second+third)/3;
+    if(avg>=90)
+      grade='A';
+    else if(80<avg<90)
+           { if(third>90)
+                grade='A';
+             else
+                grade='B';
+           }
+    else if(70<avg<80)
+           { if(third>80)
+                grade='B';
+             else
+                grade='C';
+           }
+    else if(60<avg<70)
+           { if(third>70)
+                grade='C';
+             else
+                grade='D';
+           }
+    else if(avg<60)
+           { if(third>60)
+               grade='D';
+             else
+               grade='F';
+           }
+    return ;
+    
+}
+void result(char grade)
+{
+    cout<<"The grade of student is:"<<grade;
+    return;
+}
+int main()
+{
+    float first,second,third,avg;
+    char grade;
+    read(first,second,third);
+    calgrade(first,second,third,avg,grade);
+    result(grade);
+    return 0;
+}

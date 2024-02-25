@@ -1,0 +1,11 @@
+Q.24 (a,b,g)
+Extra -
+Define a class named Triangle as follows:
+a. Data members are firstSide, secondSide, and thirdSide.
+b. Use a constructor that asserts that the sum of any two sides to be greater than
+the third one.
+c. Accessor member functions are getSides,getPerimeter, and getArea. To find
+the perimeter and area of a triangle, use the following.
+perimeter = a + b + c
+area = sqrt ((p) ∗ (p - a) ∗ (p - b) ∗ (p - c)) // p = perimeter / 2
+d. Define a constructor for the class.

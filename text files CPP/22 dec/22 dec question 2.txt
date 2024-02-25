@@ -1,0 +1,46 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int TVs,VCRs,Remote_controllers,CDs,Tape_recorders;
+	const double unitprice_TV=400.00,unitprice_VCR=220.00,unitprice_Remote_controllers=35.20,unitprice_CD=300.00,unitprice_Tape_recorders=150.00,tax=8.25/100;
+	double subtotal,total;
+	
+	cout<<"How many TVs were sold?";
+	cin>>TVs;
+	cout<<"How many VCRs were sold?";
+	cin>>VCRs;
+	cout<<"How many remote controllers were sold?";
+	cin>>Remote_controllers;
+	cout<<"How many CDs were sold?";
+	cin>>CDs;
+	cout<<"How many tape recorders were sold?";
+	cin>>Tape_recorders;
+	
+	cout<<"QTY	 	DESCRIPTION		UNIT PRICE  	TOTAL PRICE"<<endl;
+	double TP_TVs=unitprice_TV*TVs;
+	double TP_VCRs=unitprice_VCR*VCRs;
+	double TP_Remote_controllers=unitprice_Remote_controllers*Remote_controllers;
+	double TP_CDs=unitprice_CD*CDs;
+	double TP_Tape_recorders=unitprice_Tape_recorders*Tape_recorders;
+	
+	cout<<TVs<<"                   "<<"TV"<<"                  "<<unitprice_TV<<"                   "<<TP_TVs<<endl;
+	cout<<VCRs<<"                  "<<"VCRs"<<"                 "<<unitprice_VCR<<"                   "<<TP_VCRs<<endl;
+	cout<<Remote_controllers<<"    "<<"Remote controllers"<<"                 "<<unitprice_Remote_controllers<<"                  "<<TP_Remote_controllers<<endl;
+	cout<<CDs<<"                   "<<"CDs"<<"                 "<<unitprice_CD<<"                   "<<TP_CDs<<endl;
+	cout<<Tape_recorders<<"        "<<"Tape recorders"<<"                 "<<unitprice_Tape_recorders<<"                   "<<TP_Tape_recorders<<endl;
+	
+	subtotal=TP_TVs+TP_VCRs+TP_Remote_controllers+TP_CDs+TP_Tape_recorders;
+	double totaltax=(8.25*subtotal)/100;
+	
+	cout<<"	                    	"<<"SUBTOTAL"<<"                            "<<subtotal<<endl;
+	cout<<"                                     "<<"TAX"<< "                            "<< totaltax<<endl;
+	
+	total=subtotal+totaltax;
+	
+	cout<<"                                   "<<"TOTAL"<<"                            "<<total<<endl;
+	
+	return 0;
+}
+	
+

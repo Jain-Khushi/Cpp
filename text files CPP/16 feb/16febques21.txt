@@ -1,0 +1,115 @@
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+
+class Matrix
+{
+    private:
+    int A[20][20],B[20][20],C[20][20],n,i,j;
+    
+    public:
+    Matrix()
+    {
+        cout<<"Enter the number of rows and columns: ";
+        cin>>n;
+        cout<<"Enter elements of matrix A: ";
+        for(i=0;i<n;i++)
+           for(j=0;j<n;j++)
+              cin>>A[i][j];
+        cout<<"Enter elements of matrix B: ";
+        for(i=0;i<n;i++)
+           for(j=0;j<n;j++)
+              cin>>B[i][j];
+        
+    }
+    
+    void sum()
+    {
+        for(i=0;i<n;i++)
+           for(j=0;j<n;j++)
+              C[i][j]=A[i][j]+B[i][j];
+              
+        cout<<"The sum of two matrix is: ";
+        for(i=0;i<n;i++)
+           for(j=0;j<n;j++)
+              cout<<C[i][j]<<" ";
+        cout<<endl;
+    }
+    
+    void subtract()
+    {
+         for(i=0;i<n;i++)
+           for(j=0;j<n;j++)
+              C[i][j]=A[i][j]-B[i][j];
+              
+        cout<<"The subtraction of two matrix is: ";
+        for(i=0;i<n;i++)
+           for(j=0;j<n;j++)
+              cout<<C[i][j]<<" ";
+        cout<<endl;
+    }
+    
+    void product()
+    {
+         for(i=0;i<n;i++)
+           for(j=0;j<n;j++)
+              C[i][j]=A[i][j]*B[i][j];
+              
+        cout<<"The multiplication of two matrix is: ";
+        for(i=0;i<n;i++)
+           for(j=0;j<n;j++)
+              cout<<C[i][j]<<" ";
+        cout<<endl;
+    }
+    
+    void transpose()
+    {
+        cout<<"Transpose of matrix A: ";
+        for(i=0;i<n;i++)
+           for(j=0;j<n;j++)
+             { 
+                 C[i][j]=A[j][i];
+                 cout<<C[i][j]<<" ";
+             }
+        cout<<endl;
+        cout<<"Transpose of matrix B: ";
+        for(i=0;i<n;i++)
+           for(j=0;j<n;j++)
+              {
+                  C[i][j]=B[j][i];
+                  cout<<C[i][j]<<" ";
+              }
+        cout<<endl;
+    }
+};
+
+int main()
+{
+    Matrix M;
+    int choice;
+    do{
+    cout<<"...OPERATIONS ON MATRIX...\n"
+        <<"1.ADDITION\n"
+        <<"2.SUBTRACTION\n"
+        <<"3.MULTIPLICATION\n"
+        <<"4.TRANSPOSE\n"
+		<<"5.EXIT\n";
+    cout<<"Enter your choice: ";
+    cin>>choice;
+    switch(choice)
+    {
+        case 1: M.sum();
+                break;
+        case 2: M.subtract();
+                break;
+        case 3: M.product();
+                break;
+        case 4: M.transpose();
+                break;
+        case 5: exit(0);
+        default: cout<<"Wrong choice!! Enter again.";
+    }
+    }while(choice>=1 || choice<=5);
+    
+    return 0;
+}

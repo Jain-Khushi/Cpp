@@ -1,0 +1,120 @@
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+void menu()
+{
+    int A[50],n,choice,i,j;
+    cout<<"Enter the size of array : "<<endl;
+    cin>>n;
+    cout<<"\nEnter the elements of array : "<<endl;
+    for (i=0;i<n;i++)
+        cin>>A[i];
+        
+    do
+    {
+        cout<<"...MENU...\n"
+            <<"1. Print the even valued elements.\n"
+            <<"2. Print the odd valued elements.\n"
+            <<"3. Calculate and print the sum and average of the elements.\n"
+            <<"4. Print the maximum and minimum element.\n"
+            <<"5. Print the array in reverse order.\n"
+            <<"6. Remove the duplicates from the array.\n"
+            <<"7. Exit.\n";
+        cout<<"Enter your choice(1,2,3,4,5,6,7)\n";
+        cin>>choice;
+        
+        switch(choice)
+        {
+            case 1: {cout<<"The even valued elements: ";
+			        for(i=0;i<n;i++)
+                    {
+                        if(A[i]%2==0)
+                          cout<<A[i]<<" ";
+                    }
+                    cout<<endl<<endl;
+                    break;
+                }
+            case 2:{
+			        cout<<"The odd valued elements: ";
+			        for(i=0;i<n;i++)
+                    {
+                        if(A[i]%2!=0)
+                          cout<<A[i]<<" ";
+                    }
+                    cout<<endl<<endl;
+                    break;
+                    
+                }
+            case 3: {
+			
+			        int sum=0;
+                    float avg=0.0;
+                    for(i=0;i<n;i++)
+                    {
+                        sum=sum+A[i];
+                    }
+                    cout<<"The sum of elements is: "<<sum<<endl;
+                    avg=float(sum)/n;
+                    cout<<"The average of elements is: "<<avg<<endl<<endl;
+                    break;
+                }
+            case 4: {
+		        	i=0;
+                    int max=A[0],min=A[0];
+                    for(j=0;j<n;j++)
+                    {
+                        if(A[i]<A[j] && max<A[j])
+                          max=A[j];
+                    }
+                    cout<<"The maximum element of the array is: "<<max<<endl;
+                    
+                    for(j=0;j<n;j++)
+                    {
+                        if(A[j]<A[i] && A[j]<min)
+                          min=A[j];
+                    }
+                    cout<<"The minimum element of the array is: "<<min<<endl<<endl;
+                    break;
+                }
+            case 5: {
+			
+			        cout<<"The array in reversed order: ";
+                    for(i=n-1;i>=0;i--)
+                    cout<<A[i]<<" ";
+                    cout<<endl<<endl;
+                    break;
+                
+                }
+            case 6: {
+				
+			        int k;
+                    for(i=0;i<n;i++)
+                       for(j=i+1;j<n; )
+                       {
+                           if(A[i]==A[j])
+                           {
+                               for(k=j;k<n-1;k++)
+                                  A[k]=A[k+1];
+                                  n--;
+                           }
+                           else
+                              j++;
+                       }
+                    cout<<"Array after deleting duplicates is: "<<endl;
+                    for(i=0;i<n;i++)
+                       cout<<A[i]<<" ";
+                    cout<<endl<<endl;
+                    break;
+                }
+            case 7: exit(0);
+            default: "Wrong choice! Enter again.";
+        }
+    }
+    while(choice>=1 && choice!=7);
+    return;
+}
+int main()
+{
+    menu();
+    return 0;
+}

@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+float sum(int n)
+{
+    int i;
+    float sum;
+    for(i=1;i<=n;i++)
+       sum=sum+(1.0/i);
+    cout<<"The sum is:"<<sum;
+    return 0;
+}
+int main()
+{    
+    int n;
+    cout<<"Enter the number of terms whose sum is to be calculated:";
+    cin>>n;
+    sum(n);
+    return 0;
+}

@@ -1,0 +1,24 @@
+Ques 27 from the practical guidelines.
+
+#include<iostream>
+#include<fstream>
+
+using namespace std;
+int main()
+{
+	char ch;
+	ifstream fr1;      
+	ofstream fr2;      
+	
+	fr1.open("student.txt",ios::in);
+	fr2.open("teacher.txt",ios::out);
+	
+	while(fr1>>ch)
+	{
+		fr2<<ch;
+	}
+	
+	fr1.close();
+	fr2.close();
+	return 0;
+}

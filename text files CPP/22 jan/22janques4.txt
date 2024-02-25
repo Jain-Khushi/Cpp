@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+int sum(int &n)
+{
+    if(n%2==1)
+      return(n+1)/2;
+    else
+      return-n/2;
+}
+int main()
+{
+    int n;
+    cout<<"Enter the number of terms whose sum is to be calculated:";
+    cin>>n;
+    cout<<"The sum is:"<<sum(n);
+    return 0;
+    
+}

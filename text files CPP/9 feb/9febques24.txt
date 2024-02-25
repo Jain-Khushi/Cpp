@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+class Box
+{
+    private:
+    float length,breadth,height,surface_area,volume;
+    int value;
+    
+    public:
+    void enter()
+    {
+        cout<<"Enter length of the box: ";
+        cin>>length;
+        cout<<"Enter breadth of the box: ";
+        cin>>breadth;
+        cout<<"Enter height of the box: ";
+        cin>>height;
+    }
+    void check()
+    {
+        if(length==breadth && breadth==height)
+          cout<<"\nBox is a cube.\n";
+        else
+          cout<<"Box is a cuboid.\n";
+          
+    }
+    void area()
+    {
+        if(length==breadth && breadth==height)
+        {
+            surface_area=6*length*length;
+             cout<<"Surface area of cube is: "<<surface_area<<endl;
+        }
+        else
+        {
+            surface_area=2*(length*breadth+breadth*height+height*length);
+            cout<<"Surface area of cuboid is: "<<surface_area<<endl;
+        }
+     
+    }
+    void Volume()
+    {
+         volume=length*breadth*height;
+         cout<<"Volume is: "<<volume<<endl;
+    }
+};
+int main()
+{
+    Box b;
+    b.enter();
+    b.check();
+    b.area();
+    b.Volume();
+    
+    return 0;
+}

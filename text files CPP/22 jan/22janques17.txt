@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+void merge(int A[],int B[],int n,int m,int mn,int i,int j)
+{
+    int C[50],k;
+    for(i=0,j=0,k=0;i<m && j<n; )
+    {
+        if(A[i]<=B[j])
+          C[k++]=A[i++];
+        else
+          C[k++]=B[j++];
+    }
+    if(i<m)
+     {
+          while(i<m)
+               C[k++]=A[i++];
+      }
+    else 
+    {
+            while(j<n)
+                C[k++]=B[j++];
+     }
+    cout<<"The merged array is: ";
+    for(k=0;k<mn;k++)
+       cout<<C[k];
+       
+    return;
+}
+int main()
+{
+    int A[20],B[20],m,n,mn,i,j;
+    cout<<"Enter the size of array A: "<<endl;
+    cin>>m;
+    cout<<"Enter the elements of array A: "<<endl;
+    for(i=0;i<m;i++)
+       cin>>A[i];
+     
+    cout<<"Enter the size of array B: "<<endl;
+    cin>>n;
+    cout<<"Enter the elements of array B: "<<endl;
+    for(j=0;j<n;j++)
+       cin>>B[j];
+       
+    mn=m+n;
+    merge(A,B,n,m,mn,i,j);
+    
+    return 0;
+}

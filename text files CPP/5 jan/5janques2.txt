@@ -1,0 +1,40 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+void area(float base,float height)
+{
+                 float area;
+	 
+                area=0.5*base*height;
+                cout<<"Area of triangle:"<<area<<endl;
+    
+                 return;
+}
+
+void perimeter(float base,float height)
+{
+                 float perimeter,hypotenuse;
+
+                 hypotenuse=sqrt(base*base+height*height);
+	perimeter=hypotenuse+base+height;
+	cout<<"Perimeter of triangle:"<<perimeter<<endl;
+	
+	return;
+}
+
+int main()
+{
+	float base,height;
+	
+	cout<<"Enter base of triangle\n";
+	cin>>base;
+	
+	cout<<"Enter height of triangle\n";
+	cin>>height;
+	
+	area(base,height);
+	perimeter(base,height);
+	
+	return 0;
+}

@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+void calc_sum(int arr[],int &n)
+{
+	int sum=0,i;
+	for(i=0;i<n;i++)
+	    sum=sum+arr[i];
+
+	cout<<"\n The sum of digits is : "<<sum;
+	return;
+}
+void calc_product(int arr[],int &n)
+{
+	int product=1,i;
+	for(i=0;i<n;i++)
+	     product=product*arr[i];
+
+	cout<<"\nThe product of digits is : "<<product;
+
+	return;
+}
+int main()
+{
+	int arr[10],i,n;
+	cout<<"Enter the size of digits"<<endl;
+	cin>>n;
+                cout<<"Enter the number:"<<endl;
+	for(i=0;i<n;i++)
+	     cin>>arr[i];
+
+	calc_sum(arr,n);
+	calc_product(arr,n);
+
+	return 0;
+}

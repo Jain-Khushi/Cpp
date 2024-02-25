@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+void menu()
+{
+    int a,b,c,*pa=&a,*pb=&b,*pc=&c,choice,min,max;
+    cout<<"Enter the first number: ";
+    cin>>*pa;
+    cout<<"Enter the second number: ";
+    cin>>*pb;
+    cout<<"Enter the third number: ";
+    cin>>*pc;
+    do
+    {
+        cout<<"..MENU..\n"
+            <<"1.Maximum number\n"
+            <<"2.Minimum nember\n";
+        cout<<"Enter your choice(1,2)"<<endl;
+        cin>>choice;
+        switch(choice)
+        {
+            case 1: {
+                       if(*pa>*pb)
+                          max=*pa;
+                       else
+                          max=*pb;
+                       if(max<*pc)
+                          max=*pc;
+                        cout<<"The maximum number is: "<<max<<endl;
+                        break;
+                    }
+            case 2:{
+                      if(*pa<*pb)
+                         min=*pa;
+                      else
+                          min=*pb;
+                       if(min>*pc)
+                          min=*pc;
+                        cout<<"The minimum number is: "<<min<<endl;
+                        break;
+                    }
+            default: cout<<"Wrong choice!Enter again";
+                     break;
+        }
+    }
+    while(choice==1 || choice==2);
+    return;
+    
+}
+    int main()
+    {
+        menu();
+        return 0;
+    }
+    

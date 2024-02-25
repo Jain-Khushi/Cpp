@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+void calc_gcd(int first,int second)
+{
+    int small,gcd,i=1;
+    if(first>second)
+      small=second;
+    else
+      small=first;
+    
+    while(i<=small)
+    {
+        if(first % i==0 && second % i==0)
+          gcd=i;
+        i++;
+    }
+    cout<<"Greatest common divisor of "<<first<<" and "<<second<<" is: "<<gcd;
+    return;
+}
+int main()
+{
+    int first,second;
+    cout<<"Enter the first number: "<<endl;
+    cin>>first;
+    cout<<"Enter the second number: "<<endl;
+    cin>>second;
+    
+    calc_gcd(first,second);
+    return 0;
+}
