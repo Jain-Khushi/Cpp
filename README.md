@@ -1,1 +1,1 @@
-# Contains Cpp codes during the semester 1 of Bacherlors coursework
+# Contains Cpp codes during semester 1 of Bachelors coursework
